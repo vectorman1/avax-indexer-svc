@@ -1,6 +1,3 @@
 [submodule "indexer"]
 	path = indexer
 	url = git@github.com:vectorman1/avax-indexer.git
-[submodule "api"]
-	path = api
-	url = git@github.com:vectorman1/avax-indexing-svc.git
