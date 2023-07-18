@@ -29,3 +29,7 @@ The API includes an OpenAPI Swagger specification which can be accessed at the b
 5. Run `docker compose logs -f` to view the logs
 6. Access the API at `http://localhost:3000`
 
+**NB**: Initial catchup of the indexer can take about a minute. Logs of
+the [indexer](https://github.com/vectorman1/avax-indexer) will show the progress. Afterwards, each time it is restarted,
+it will catch up with the missed out blocks.
+
