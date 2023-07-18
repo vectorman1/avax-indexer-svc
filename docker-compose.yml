@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017"
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: testpassword123
+    restart: always
+
+  indexer:
+    depends_on:
+      - mongo
+    build:
+      context: ./indexer
+      dockerfile: ./indexer/Dockerfile
+    environment:
+      MONGODB_URI: mongodb://root:testpassword123@mongo:27017/avax-indexer?authSource=admin
+      AVAX_RPC: https://api.avax.network/ext/bc/C/rpc
+      AVAX_RPC_INFURA: 
+      AVAX_WS: wss://api.avax.network/ext/bc/C/ws
+    restart: always
+
+  api:
+    depends_on:
+      - indexer
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      MONGODB_URI: mongodb://root:testpassword123@mongo:27017/avax-indexer?authSource=admin
+    ports:
+      - "3000:3000"
+    restart: always
+
