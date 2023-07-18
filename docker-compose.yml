@@ -4,7 +4,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27017"
+      - "27017:27017"
     volumes:
       - ./dbdata:/data/db
     environment:
@@ -17,7 +17,7 @@ services:
       - mongo
     build:
       context: ./indexer
-      dockerfile: ./indexer/Dockerfile
+      dockerfile: ./Dockerfile
     environment:
       MONGODB_URI: mongodb://root:testpassword123@mongo:27017/avax-indexer?authSource=admin
       AVAX_RPC: https://api.avax.network/ext/bc/C/rpc
