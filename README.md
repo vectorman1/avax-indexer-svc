@@ -33,3 +33,10 @@ The API includes an OpenAPI Swagger specification which can be accessed at the b
 the [indexer](https://github.com/vectorman1/avax-indexer) will show the progress. Afterwards, each time it is restarted,
 it will catch up with the missed out blocks.
 
+**NB1**: It is possible for it to be required to bump up your Infura daily rate limits. This can be done via
+the [Infura Dashboard](https://app.infura.io/) -> Your API Key -> Security -> Requests. <br>
+
+Set these values as:
+
+- Per second requests rate-limiting: 1000
+- Per day total requests: 10000000
