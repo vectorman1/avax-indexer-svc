@@ -21,13 +21,13 @@ The API includes an OpenAPI Swagger specification which can be accessed at the b
 
 ### Steps
 
-1. Clone the repository
-2. Run `git submodule update --init --recursive` to initialize the submodules
-3. Set your own Infura API key for Avalanche network of choice under `indexer.environment.AVAX_RPC_INFURA` in
+1. Clone the
+   repository: <br> `git clone git@github.com:vectorman1/avax-indexer-svc.git --recursive && cd avax-indexer-svc`
+2. Set your own Infura API key for Avalanche network of choice under `indexer.environment.AVAX_RPC_INFURA` in
    the `docker-compose.yml` file. A key can be acquired [here](https://app.infura.io/).
-4. Run `docker compose up -d` to start the service
-5. Run `docker compose logs -f` to view the logs
-6. Access the API at `http://localhost:3000`
+3. Run `docker compose up -d` to start the service
+4. Run `docker compose logs -f` to view the logs
+5. Access the API at `http://localhost:3000`
 
 **NB**: Initial catchup of the indexer can take about a minute. Logs of
 the [indexer](https://github.com/vectorman1/avax-indexer) will show the progress. Afterwards, each time it is restarted,
